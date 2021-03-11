@@ -1,0 +1,19 @@
+body{
+	
+}
+
+.nav{
+	
+	width: 100%;
+	background-color: cyan;
+	color: green;
+	padding: 0px;
+}
+
+.nav .d-flex{
+	
+}
+
+.nav ul li{
+	float: left;
+	padding: 0px 20px;
