@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -18,9 +19,13 @@ class TaskController extends Controller
     {
 		//Colección de tareas
 		$tasks = Task::all();
+        $projects = Project::all();
 		
-        return view('index')->with('tasks', $tasks);
+        return view('index')
+        ->with('tasks', $tasks)
+        ->with('projects', $projects);
     }
+        
 
     /**
      * Show the form for creating a new resource.
@@ -47,6 +52,7 @@ class TaskController extends Controller
 			'name' => $request->name,
 			'description' => $request->description ,
 			'due_date' => $request->due_date ,
+            'project_id' => $request->project_id
 		]);
 		
 		// Modo N00B
@@ -108,6 +114,7 @@ class TaskController extends Controller
 			'description' => $request->description ,
 			'due_date' => $request->due_date ,
 			'status' => $request->status,
+            'project_id' => $request->project_id
 		]);
 		
 		

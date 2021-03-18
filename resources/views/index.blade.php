@@ -47,6 +47,26 @@
 				<label>Descripción</label>
 				<textarea class="form-control" name="description"></textarea>
 			</div>
+
+<!--Forma de uso aplicada directa-->
+	{{--
+			@php
+				$projects = \App\Models\Project::all();
+
+			@endphp
+
+			--}}
+
+
+
+			<div class="form-group mb-3">
+				<label>Proyectos</label>
+				<select class="form-control" name="project_id">
+					@foreach($projects as $project)
+					<option value="{{ $project->id }}">{{ $project->name }}</option>
+					@endforeach
+				</select>
+			</div>
 			
 			<div class="form-group mb-3">
 				<label>Fecha de entrega</label>
