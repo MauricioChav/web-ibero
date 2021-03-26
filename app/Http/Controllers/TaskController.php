@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Task;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -18,10 +19,10 @@ class TaskController extends Controller
     public function index()
     {
 		//Colección de tareas
-		$tasks = Task::all();
-        $projects = Project::all();
+		$tasks = Task::where('user_id', Auth::user()->id)->get();
+        $projects = Project::where('user_id', Auth::user()->id)->get();
 		
-        return view('index')
+        return view('tasks.index')
         ->with('tasks', $tasks)
         ->with('projects', $projects);
     }
@@ -36,7 +37,7 @@ class TaskController extends Controller
 	 //FORMULARIO DE CRACIÓN
     public function create()
     {
-        return view('create');
+        return view('tasks.create');
     }
 
     /**
@@ -49,6 +50,7 @@ class TaskController extends Controller
     {
 		//Modo Pro
         $task = Task::create([
+            'user_id' => Auth::user()->id,
 			'name' => $request->name,
 			'description' => $request->description ,
 			'due_date' => $request->due_date ,
@@ -79,8 +81,15 @@ class TaskController extends Controller
 	 //VISTA DE UNA SOLA TAREA
     public function show($id)
     {
-		$task = Task::find($id);
-        return view('show')->with('task', $task);
+		$task = Task::find($id)->where('user_id', Auth::user()->id)->first();
+
+        if(empty($task)){
+            return redirect()->back();
+        }else{
+            return view('tasks.show')->with('task', $task);
+
+        }
+        
     }
 
     /**
@@ -94,7 +103,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-        return view('edit')->with('task', $task);
+        return view('tasks.edit')->with('task', $task);
     }
 
     /**
