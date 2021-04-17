@@ -20,9 +20,7 @@
 @include('layouts.nav')
 
 
-
 @yield('content')
-
 
 
 <!-- Javascript Bootstrap -->

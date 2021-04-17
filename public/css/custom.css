@@ -1,20 +1,147 @@
 body{
-	
-}
-/*
-.nav{
-	
-	width: 100%;
-	background-color: cyan;
-	color: green;
-	padding: 0px;
+	background-color: #324144;
+	color: white;
 }
 
-.nav .d-flex{
-	
+.container-fluid{
+	background-color: #324144;
 }
 
-.nav ul li{
-	float: left;
-	padding: 0px 20px;
-*/
+.menu-bar{
+	background-color: #181F21;
+}
+
+.front-banner{
+	padding: 120px 0px;
+}
+
+.text-logo{
+	height: 40px;
+}
+
+.home-icon{
+	width: 50%;
+}
+
+.cover-img{
+	background-image: url("img/cover1.jpg");
+}
+
+.card{
+	background-color: #181F21;
+	color: white;
+}
+
+.table{
+	color: white;
+
+}
+
+th{
+	color: #17C117;
+}
+
+tr{
+	border-radius: .8rem;
+	padding-bottom: 20px;
+	border-style: none !important;
+	border-color: #181F21 !important;
+}
+
+.green-title{
+	color: #17C117;
+	font-size: 35px;
+}
+
+.green-title-sm{
+	color: #17C117;
+}
+
+.red-title{
+	color: #ED1818;
+}
+
+.link-white{
+	color: white;
+}
+
+.link-white:hover{
+	color: #cccccc;
+}
+
+.btn{
+	    border-radius: .8rem;
+}
+
+.btn-io-white:hover{
+	color: white;
+	background-color: #17C117;
+	border-color: #17C117;
+}
+
+.btn-primary{
+	color: white;
+	background-color: #17C117;
+	border-color: #17C117;
+
+}
+
+.btn-primary:hover{
+	background-color: #128712;
+	border-color: #128712;
+
+}
+
+.btn-rect{
+	border-radius: 0rem !important;
+
+}
+
+.btn-danger {
+    background-color: #ED1818;
+    border-color: #ED1818;
+}
+
+.btn-info{
+	background-color: #1B64BC;
+	border-color: #1B64BC;
+	color: white;
+}
+
+.btn-close{
+	color: white;
+}
+
+
+.bg-success {
+    background-color: #17C117!important;
+    color: black;
+}
+
+@media (min-width: 576px){
+	.modal-dialog {
+    max-width: 50%;
+    margin: 1.75rem auto;
+}
+}
+
+.modal-r-body{
+    position: relative;
+    flex: 0 0 auto;
+    padding: 1rem;
+}
+
+.modal-header, .modal-footer{
+	border-bottom: none;
+	border-top: none;
+}
+
+.modal-content{
+	background-color: #181F21;
+}
+
+.btn-io-white{
+	color: #17C117;
+	background-color: white;
+	border-color: #17C117;
+}

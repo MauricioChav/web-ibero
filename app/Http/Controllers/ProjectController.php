@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -91,17 +92,14 @@ class ProjectController extends Controller
             'name' => $request->name,
             'description' => $request->description ,
             'final_date' => $request->final_date ,
-            'hex' => $request
+            'hex' => $request->hex
         ]);
         
-        
-        if($request->origin == 0){
-            //Regresar a detalle de tarea
+
+
             return redirect()->back();
-        }else{
-            //Regresar si esta desde la pantalla editar
-        return redirect()->route('projects.show', $project->id);
-        }
+        
+        
     }
 
     /**
@@ -113,8 +111,11 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
+        $linked_tasks = Task::where('project_id', $id);
+        
+        $linked_tasks->delete();
         $project->delete();
         
-        return redirect()->route('projects.index');
+        return redirect()->route('proyectos.index');
     }
 }

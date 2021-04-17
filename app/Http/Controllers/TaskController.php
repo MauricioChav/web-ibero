@@ -81,7 +81,7 @@ class TaskController extends Controller
 	 //VISTA DE UNA SOLA TAREA
     public function show($id)
     {
-		$task = Task::find($id)->where('user_id', Auth::user()->id)->first();
+		$task = Task::find($id);
 
         if(empty($task)){
             return redirect()->back();
